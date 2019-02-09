@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fat arrow</title>
+    <script>
+        //funcion anonima con un solo argumento antes de ecmascript 6
+        var w = function (a) {
+            //body..
+            return a;
+        };
+        //utilisamos la funcion anonima dentro de un console.log
+        //le pasamos un "hola mundo" como argumento
+        console.log(w("hola mundo"))
+
+
+
+
+        //funcion anonima de ecmascript6 con un solo parametro
+        var x = a => a;
+        console.log(x("hola mundo"), '/con fat arrow');
+
+
+        //funcion anonima con mas de un parametro
+        var y = (a, b) => a + ' ' + b;
+        console.log(y("hola", "mundo"), '/fat arrow con dos parametros')
+
+
+        //funcion anonima sin parametros
+        var z = () => "Hola mundo";
+        console.log(z(), '/fat arrow sin parametros');
+
+        //segunda opcion de funcion anonima
+        //sin parametros
+        var z1 = _ => "Hola mundo";
+        console.log(z1(), '/fat arrow sin parametros (utilizando guion bajo "_")')
+
+
+        //fat arrow dentro de otra funcion
+        setTimeout(_ => alert("hola mundo/ fat arrow dentro de otra funcion"), 1000)
+    </script>
+</head>
+
+<body>
+    <h1>
+        Utiliza la consola (press F12)
+    </h1>
+
+</body>
+
+</html>
