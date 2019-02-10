@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>let</title>
+
+    <script>
+    function prueba(){
+        if(true){
+            var x = 10;
+            console.log(x)//se imprime la primera ves dentro del bloque
+        }
+    console.log(x)    //se imprime la segunda ves fuera del bloque
+    }
+    //ejecutamos al funcion
+    prueba();
+
+    function pruebalet(){
+        if(true){
+            let y=10;
+            console.log(y)//se imprime dentro del bloque
+        }
+    console.log(y);//marca un error por que la variable "y" no es accesible fuera del bloque
+    //esto nos ayuda en el ahorro de memoria por que despues de que se ejecuta el ciclo la variable desaparece
+    //y con esto libera memoria
+    }
+    //ejecutamos la funcion
+    pruebalet();
+    </script>
+</head>
+<body>
+    <H1>PRESS F12</H1>
+    
+</body>
+</html>
