@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Argumentos por default</title>
+    <script>
+        //ecmascript5
+        function multiplicar(a, b) {
+            b = typeof b !== 'undefined' ? b : 1;
+            //  console.log('a',a);
+            //  console.log('b',b);
+            return a * b;
+
+        }
+        //multiplicar(5);//5
+        console.log(multiplicar(5))
+
+
+
+        console.log('//////////////////////////')
+        //en ecmascript6
+        function multiplicar2(a, b = 1) {
+            return a * b;
+        }
+        console.log(multiplicar2(5))
+
+        console.log('//////////////////////////')
+
+
+        //se pueden tener tambien varios parametros por default
+        function f(x, y = 7, z = 42) {
+            return x + y + z;
+        }
+        console.log(f(1))
+        console.log('////////////////////////////////');
+
+        //ejemplo con un arreglo
+        function agregar(valor, arreglo = []) {
+            arreglo.push(valor)
+            return arreglo;
+        };
+        console.log(agregar(1))
+        console.log('////////////////////////////////');
+
+        //ejemplo con una funcion
+        function llamarAlgo(cosa = algo()) {
+            return cosa;
+        }
+
+        function algo() {
+            return "Hola mundo"
+        }
+
+        console.log(llamarAlgo(), 'sin pasarle nada a la funcion');
+        console.log(llamarAlgo('parametro pasado'), 'pasandole un texto como parametro')
+
+        //destructuring consiste en asignar valores con respecto a un arreglo
+        //[x,y]=[1,2] lo que hacemos es designarle a "x" el valor de 1
+        //a "y" se le asigan el valor de 2
+        //otra forma de hacerlo es la siguiente: {z:z}={z:3}
+        function des([x,y]=[1,2],{z:z}={z:3}){
+            return x+y+z;
+        }
+        console.log(des(),'ejecutando des()')
+
+    </script>
+</head>
+
+<body>
+    <h1>press f12</h1>
+
+</body>
+
+</html>
