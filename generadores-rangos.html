@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generadores-rangos</title>
+    <script>
+
+        //1º---------------------------------------
+        //creamos un generador colocando el * despues de la palabra function ("function*")        
+        //despues le damos un nombre ("rango") y le decimos en el primer argumento
+        //apartir de que numero comensara a iterar; el segundo parametro indica en que numero
+        //debera de terminar el rango, mientras que el tercer parametro nos dice en cuanto 
+        //debera de incrementar por cada iteracion
+        function* rango(inicio, fin, incremento) {
+            //el ciclo while nos permite ejecutar la comparacion hasta que se cumpla la condicion
+            while (inicio < fin) {
+                //yield es el encargado de guardar el resultado o  producto
+                //se utiliza en lugar del return, solo que este guarda el estado de nuestra funcion
+                //y si queremos accesar a los valores debemos de utilizar un next().value
+                yield inicio
+                //como ya se guardo el ultimo estado en inicio con yield
+                //ahora le sumamos el incremento por lo que cuando el ciclo
+                //vuelve a inciar sera 0+2
+                //y despues 2+2
+                //4+2
+                //6+2 el 10 ya no lo ejecutaria por que no es menor a 10 como lo pide
+                //la consulta
+                inicio += incremento
+            }
+        }
+
+        //se ejecuta el generador mediante un ciclo for 
+        //el cual devuelve cada valor del yield 
+        for (let i of rango(0, 10, 2)) {
+            console.log(i) //0,2,4,6,8
+        }
+
+
+        //2º-------------------------
+        //ahora generamos un Un iterador infinito
+        console.log("///////////////////////////////////////////////")
+        //we create a generator named idMaker
+        function* idMaker() {
+            //we create variable named index with a value of 0
+            var index = 0;
+            //we create a while cycle which will be running of 
+            //way infinity always that the value is equal to true
+            while (true)
+                //yield save the value of the last in addition  
+                //it will increase the value of one an one
+                yield index++;
+        }
+
+        //we save the function in another variable
+        var gen = idMaker(); // "Generator { }"
+
+        //we can access every time that
+        //we want through of the reserved word .next().value       
+        console.log(gen.next().value); // 0
+        console.log(gen.next().value); // 1
+        console.log(gen.next().value); // 2
+
+
+
+        //devuelve el cuadrado de un numero
+        function* cuadrados(){
+            var n = 1;
+            while(true){
+                var c = n*n;
+                n++;
+                yield c;
+            }
+        }
+        var gen = cuadrados();
+        console.log(gen); //"suspended"
+        console.log(gen.next().value);//1
+        console.log(gen.next().value);//4
+        console.log(gen.next().value);//9
+
+    </script>
+</head>
+
+<body>
+    <h1> press F12 </h1>
+
+</body>
+
+</html>

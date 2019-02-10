@@ -16,18 +16,13 @@
         //le pasamos un "hola mundo" como argumento
         console.log(w("hola mundo"))
 
-
-
-
         //funcion anonima de ecmascript6 con un solo parametro
         var x = a => a;
         console.log(x("hola mundo"), '/con fat arrow');
 
-
         //funcion anonima con mas de un parametro
         var y = (a, b) => a + ' ' + b;
         console.log(y("hola", "mundo"), '/fat arrow con dos parametros')
-
 
         //funcion anonima sin parametros
         var z = () => "Hola mundo";
@@ -38,9 +33,17 @@
         var z1 = _ => "Hola mundo";
         console.log(z1(), '/fat arrow sin parametros (utilizando guion bajo "_")')
 
-
         //fat arrow dentro de otra funcion
         setTimeout(_ => alert("hola mundo/ fat arrow dentro de otra funcion"), 1000)
+
+        //si se necesita de mas de una instruccion, se tienen que utilizar las llaves
+        var z2 = _ => {
+            a = "hola";
+            b = "mundo";
+            console.warn(a + " " + b);
+        }
+        //ejecutamos la funcion 
+        z2();
     </script>
 </head>
 
