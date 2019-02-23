@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>conjuntos sets y maps</title>
+    <script type="text/javascript" >
+    //sets
+    //.add se utliza para agregar
+    //.has se utiliza para buscar
+    var s = new Set();
+    //añade 3 elementos, cadena1 se repite
+    s.add("cadena1").add("cadena2").add("cadena1");
+    ///el tamaño es 2 asi que debe de arrojar un true
+    console.log(s.size === 2);
+    //el conjunto no tiene la cadena hola por lo que arroja un false
+    console.log(s.has("hola"));
+
+
+
+    //maps
+    //creamos un conjunto
+    var m = new Map();
+    //añadimos la llave "hola" con el valor de 42
+    m.set("hola",42);
+    //añadimos la llave "a" con el valor de 34
+    m.set("a",34)
+    //obtenemos los valores asociados mediante el metodo get
+    console.log(m.get("hola"));
+    console.log(m.get("a"));
+    </script>
+</head>
+<body>
+    <h1>press <span style="color:Red"  >f12</span></h1>
+    
+</body>
+</html>

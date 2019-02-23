@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuevas carcteristicas de los objetos</title>
+    <script>
+    //sintaxis corta
+    //declaramos dos variables
+    var  x = 10, y = 10;
+    //creamos un objeto  y le asignamos el valor a sus propiedades
+    //tal como se hacia antes de ecmascript 6
+    obj={
+        x:x,
+        y:y
+    }
+    //y ahora creamos otro haciendolo con ecmascript 6
+    obj2={
+        x,//si la propiedad y el nombre de la variable que se le va asignar son iguales
+        y//no hay necesidad de colocar una asignacion, por que toma en automatico su valor
+    }
+
+    console.log(obj2.x,obj2.y)
+
+    
+    
+    
+    
+    //definicion corta de los metodos de un objeto
+    //Antes de ecma6
+    obj3={
+        suma:function suma(a,b){
+            return a+b
+        }
+    }
+
+    console.log(obj3.suma(1,2))
+
+    //ahora con ecma6
+    obj4={
+        suma (a,b){return a+b},
+        multiplica (x,y){return x*y},
+        //ejemplo de generador dentro de un objeto
+        *num (x,y){ }
+    }
+    console.log(obj4.suma(6,5));
+    console.log(obj4.multiplica(7,7))
+    
+
+
+
+
+
+
+
+    //propiedad calculada
+    let persona ={
+        nombre:"juan",
+        ["id" + num()]:(4*num())
+        //generamos una llave con la palabra id mas un numero aleatorio
+        //generamos un valor multiplicando 4 por un numero aleatorio
+    }
+    console.log(persona);
+    function num(){
+        return Math.floor(Math.random()*10)
+    }
+
+
+
+
+
+
+
+    //metodo assign 
+    //en este ejemplo vemos como se suman todos los
+    //objetos en un uno nuevo
+    var o1 = {a:1};
+    var o2 = {b:2};
+    var o3 = {c:3};
+
+    var objnuevo = Object.assign(o1,o2,o3);
+    console.log(objnuevo); //a:1,b:2,c:3
+    console.log(o1);
+
+    //ejemplo 2 con el que podemos observar
+    //como se actulizan los valores de las propiedad de un objeto
+    //con el metodo Object.assign(), es decir se suman
+    //los objetos en uno nuevo, y se va dejando el valor mas reciente
+    //en aquellas propiedad que contengan el mismo nombre
+    var nombres = {a:"angel",b:"angel",c:"angel"};
+    var nombres2 = {b:"laura",c:"laura"};
+    var nombres3 = {c:"jorge"};
+
+    var nombresNuevos = Object.assign({},nombres,nombres2,nombres3);
+    console.log(nombresNuevos);//{a: "angel", b: "laura", c: "jorge"}
+    //la ventaja que tenemos es que los objetos originales 
+    //no se vene afectados
+    console.log(nombres,'nombres');
+    console.log(nombres2,'nombres2');
+    console.log(nombres3,'nombres3');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

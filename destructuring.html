@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring</title>
+    <script>
+    // Destructuring: es un nuevo método para extraer datos rapidamente
+    //de un bjeto {} o un arreglo [] sin tener que escribir mucho código
+    let numeros  = ['uno','dos','tres'];
+    let [one,two,three] = numeros;
+    console.log(one);//debe de regresar el valor de uno
+    console.log(two);//debe de regresar el valor de dos
+
+
+    //destructurando un objeto
+
+    let objeto = {
+        cuadrado(lon){
+            console.log(lon * lon);
+        },
+        circulo(radio){
+            console.log(radio*Math.PI);
+        },
+        texto(texto){
+            console.log(texto);
+        }
+    }
+
+    //ya creado el objeto lo destructuramos
+    let {cuadrado,circulo,texto}= objeto;
+    cuadrado(5);
+    circulo(10);
+    texto("hola mmundo");
+
+
+
+
+
+
+
+
+    //ahora lo que haremos sera pasar un destructuring como parametro
+    //a un a funcion
+    
+    //creamos dos objetos 
+    let juana = {
+        nombre :'Juana',
+        paterno : 'Perez'
+    };
+
+    let juan = { nombre:'Juan',paterno:'Lopez',materno:'Perez'}
+
+    //creamos una funcion que reciba como parametro el objeto destructurado
+    function nombreCompleto({nombre,paterno,materno="N/A"}){
+        console.log(`Mi nombre es ${nombre} ${paterno} ${materno}`);
+    }
+
+    //ejecutamos la funcion en cada objeto
+    nombreCompleto(juana);
+    nombreCompleto(juan);
+
+    </script>
+</head>
+<body>
+    <h1>press f12</h1>
+</body>
+</html>

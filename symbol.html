@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>symbol</title>
+    <script>
+    //nuevo tipo de dato primitivo,
+    //son unicos e inmutables,
+    //utlizados como identificadores para proìedades de objetos
+    //se les puede agregar una descripcion opcional/
+    //la cual es usada solo para fines del depurador 
+
+    //--cada valor del tipo symbol tiene asociado un valor del tipo String o Undefined
+    //el cual sirve unicamente como descripcion del simbolo
+
+    //--no se le debe usar con el operador new
+    //--tampoco debe ser extendido mediante clases
+
+    var sim1 = Symbol();
+    console.log(typeof sim1)//nos debe de devolver un tipo de dato Symbol 
+    var sim2 = Symbol('descripcion de sim2')
+    var sim3 = Symbol('descripcion de sim2')
+
+    //podemos convertir un symbol en un objeto
+    var simObject = Object(sim1);
+    console.log(typeof simObject)//NOS DEBE DE ARROJAR QUE ES UN SIMBOLO
+
+    //se tiene disponibles las funciones Symbol.for() y Symbol.keyFor()
+
+    //los Symbol se pueden guardar dentro de constantes
+    const foo = Symbol();
+    const bar = Symbol();
+    console.log(typeof foo)
+    console.log(typeof bar)
+    </script>
+</head>
+<body>
+    <h1>press f12</h1>
+</body>
+</html>
